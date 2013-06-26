@@ -1,5 +1,16 @@
 # Changelog
 
+* 1.0.11
+  * mongoid: escape regular expression in search
+  * When possible, use jQuery .on() rather than .live()
+* 1.0.6 Postgres or non-postgres queries are now determined at model level
+* 1.0.3 Fixed Formtastic 2.0 + Ruby 1.8.7 compat issue
+* 1.0.2 Fixed issue #93, #94
+* 1.0.1 Formtastic 2.0 compatibility fix
+* 1.0.0 Rails 3.1 asset pipeline support
+* 0.9.1 Fixes issues #96 and #32
+* 0.9.0 Massive rewrite
+* 0.8.0 Compressed JS file
 * 0.7.5 Pull request #46
 * 0.7.4 Allows Rails 3.1
 * 0.7.3 MongoMapper

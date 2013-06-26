@@ -1,6 +1,6 @@
 module Rails3JQueryAutocomplete
   module FormtasticPlugin
-    def autocompleted_input(method, options = {})
+    def autocomplete_input(method, options = {})
       if options.key?(:selected) || options.key?(:checked) || options.key?(:default)
         ::ActiveSupport::Deprecation.warn(
         "The :selected, :checked (and :default) options are deprecated in Formtastic and will be removed from 1.0. " <<
@@ -32,6 +32,8 @@ module Rails3JQueryAutocomplete
 
       return template.content_tag(:li, Formtastic::Util.html_safe(list_item_content), wrapper_html)
     end
+
+    alias_method :autocompleted_input, :autocomplete_input
 
 
     protected

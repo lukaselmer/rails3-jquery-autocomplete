@@ -1,24 +1,20 @@
-require 'yajl/json_gem'
 require 'rails3-jquery-autocomplete/form_helper'
-require 'rails3-jquery-autocomplete/helpers'
 require 'rails3-jquery-autocomplete/autocomplete'
-require 'rails3-jquery-autocomplete/formtastic_plugin'
+
+module Rails3JQueryAutocomplete
+  autoload :Orm              , 'rails3-jquery-autocomplete/orm'
+  autoload :FormtasticPlugin , 'rails3-jquery-autocomplete/formtastic_plugin'
+
+  unless ::Rails.version < "3.1"
+    require 'rails3-jquery-autocomplete/rails/engine'
+  end
+end
 
 class ActionController::Base
-  extend Rails3JQueryAutocomplete::ClassMethods
-  include Rails3JQueryAutocomplete::Helpers
+  include Rails3JQueryAutocomplete::Autocomplete
 end
 
-#
-# Load the formtastic plugin if using Formtastic
-#
-begin
-  require 'formtastic'
-  class Formtastic::FormBuilder < ActionView::Helpers::FormBuilder
-    include Rails3JQueryAutocomplete::FormtasticPlugin
-  end
-rescue LoadError
-end
+require 'rails3-jquery-autocomplete/formtastic'
 
 begin
   require 'simple_form'
